@@ -1,0 +1,158 @@
+.todo_wrapper {
+  width: 700px;
+  box-shadow: 0 3px 4px 2px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  font-family: "Sriracha", cursive;
+  margin-top: 30px;
+}
+.todo_wrapper h1 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.todo__top {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  padding: 1rem;
+  color: whitesmoke;
+  font-weight: 500;
+}
+.top {
+  flex: 0.6;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.7rem;
+}
+.todo_search {
+  height: 32px;
+  display: flex;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+/* .todo_search > .icon {
+} */
+.icon-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  /* background: linear-gradient(to right, #023e8a, #00b4d8); */
+  background: linear-gradient(to right, #3a0ca3, #4895ef);
+  width: 35px;
+}
+.bottom {
+  display: flex;
+  flex: 0.4;
+  justify-content: flex-end;
+}
+input {
+  width: 100%;
+  height: 30px;
+  padding: 0 0.5rem;
+  border: none;
+  font-weight: 500;
+  font-family: "Sriracha", cursive;
+}
+input:focus {
+  outline: none;
+}
+input::placeholder {
+  font-family: "Sriracha", cursive;
+}
+button {
+  padding: 0.5rem;
+  background: linear-gradient(to right, #3a0ca3, #4895ef);
+  border: none;
+  color: whitesmoke;
+  font-weight: 500;
+  border-radius: 3px;
+  font-family: "Sriracha", cursive;
+  cursor: pointer;
+}
+.bottom button {
+  padding: 0.5rem 2rem;
+}
+.todo__botton {
+  display: flex;
+  justify-content: space-between;
+}
+.todo__botton button {
+  width: 200px;
+}
+.list_title {
+  margin-top: 10px;
+}
+.list_box {
+  margin-top: 50px;
+  overflow-y: scroll;
+  height: 300px;
+  padding-right: 0.3rem;
+  scroll-behavior: smooth;
+}
+
+.list_box::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+.list_box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+.list_box::-webkit-scrollbar-thumb {
+  background: #31b4c5;
+}
+
+/* Handle on hover */
+.list_box::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.todo_wrapp {
+  margin: 10px 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ccc;
+  height: 40px;
+  border-radius: 3px;
+  font-weight: 500;
+  padding: 0 1rem;
+}
+.todo_wrapp p {
+  font-size: 14px;
+}
+.todo_listkanan {
+  /* margin-top: 10px; */
+  display: flex;
+  font-size: 17px;
+}
+.checkbox {
+  width: 17px;
+  height: 17px;
+  cursor: pointer;
+}
+.edit {
+  width: 15px;
+  height: 17px;
+  margin: 0 15px;
+  color: orange;
+  cursor: pointer;
+}
+.del {
+  color: red;
+  cursor: pointer;
+}
+.dtn {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 40px;
+}
+.dtn button {
+  background-color: rgb(201, 38, 38);
+  width: 320px;
+}
