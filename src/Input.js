@@ -9,6 +9,7 @@ const Input = (props) => {
     task: "",
     complete: false,
   });
+
   const [todoUpdate, setTodoUpdate] = useState({
     id: props.update.data.id,
     task: props.update.data.task,
@@ -16,7 +17,6 @@ const Input = (props) => {
   });
 
   const sumbitBtn = () => {
-    console.log(todoUpdate);
     if (props.update.update) {
       props.sub(false);
       props.inputUpdate(todoUpdate);
@@ -25,11 +25,11 @@ const Input = (props) => {
       props.funcInput(todo);
     }
   };
-  console.log(todoUpdate.task);
+  console.log(props);
 
   return (
     <div className="input">
-      <h1>{!props.update.update ? "TodoInput" : "Edit Todo"}</h1>
+      <h1>{!props.update.update ? "TodoInput" : "EditTodo"}</h1>
       <div className="input_wrap">
         <div className="todo_search">
           <div className="icon-box">
@@ -53,4 +53,5 @@ const Input = (props) => {
     </div>
   );
 };
+
 export default Input;

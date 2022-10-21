@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md";
 import { FaPencilAlt } from "react-icons/fa";
 import list from "./List.json";
 import "./ToDo.css";
+
 const ToDo = () => {
   const [openInput, setOpenInput] = useState(false);
   const [todos, setTodos] = useState(list);
@@ -16,23 +17,23 @@ const ToDo = () => {
 
   //GET DATA TODO FROM INPUT TODO
   const inputTodo = (data) => {
-    list.push(data);
+    list.unshift(data);
   };
 
   //INPUT TODO UPDATE
   const inputTodoUpdate = (data) => {
-    const dataUpdate = list.map((item) => {
+    const listBaru = list.map((item) => {
       if (item.id === data.id) {
         item.task = data.task;
       }
       return item;
     });
-    list = dataUpdate;
-    setTodos(dataUpdate);
+    list = listBaru;
+    setTodos(listBaru);
     setUpdate({ update: false, data: "" });
   };
 
-  // HANDLE CHECKED
+  // HANDLE CHECKED ICON
   const checkbox = (e) => {
     const data = todos.map((item) => {
       if (e.target.name === item.task) {
@@ -50,7 +51,8 @@ const ToDo = () => {
     });
     setTodos(data);
   };
-  //HANDLE BUTTON DONE'
+
+  //HANDLE BUTTON DONE
   const done = () => {
     const data = list.filter((item) => {
       return item.complete === true;
@@ -63,7 +65,6 @@ const ToDo = () => {
     const data = list.filter((item) => {
       return item.complete === false;
     });
-    // list = data;
     setTodos(data);
   };
 
@@ -71,6 +72,7 @@ const ToDo = () => {
   const deleteAllDone = () => {
     const data = list.filter((item) => {
       return item.complete !== true;
+      // return item.complete === false;
     });
     list = data;
     setTodos(data);
@@ -81,22 +83,24 @@ const ToDo = () => {
     setTodos("");
     list = [];
   };
-  //HANDLE DELETE
+
+  //HANDLE DELETE ICON
   const delte = (name) => {
     const data = list.filter((item) => {
       return item.task !== name;
     });
     list = data;
     setTodos(data);
-    setUpdate({
-      ...update,
-      update: false,
-    });
+    // setUpdate({
+    //   ...update,
+    //   update: false,
+    // });
   };
-  //HANDLE UPDATE
-  const update = (name) => {
+
+  //HANDLE EDIT ICON
+  const update = (id) => {
     const data = list.find((item) => {
-      return item.task === name;
+      return item.id === id;
     });
     setUpdate({
       ...isUpdate,
@@ -105,10 +109,10 @@ const ToDo = () => {
     });
     setOpenInput(true);
   };
-  console.log(isUpdate);
+
   return (
     <div className="todo_wrapper">
-      {openInput ? (
+      {openInput ? ( //Ternari operator
         <Input
           sub={setOpenInput}
           funcInput={inputTodo}
@@ -166,7 +170,7 @@ const ToDo = () => {
                       type="checkbox"
                     />
                     <FaPencilAlt
-                      onClick={() => update(item.task)}
+                      onClick={() => update(item.id)}
                       className="edit"
                     />
                     <MdDelete
